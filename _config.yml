@@ -3,10 +3,10 @@
 #
 
 # Name of your site (displayed in the header)
-name: EKR
+name: Eric Roberts
 
 # Short bio or description (displayed in the header)
-description: In Progress
+description: Trying to be Useful
 #
 # Flags below are optional
 #
@@ -46,7 +46,7 @@ footer-links:
   youtube: 
 
 # Text under the icons in footer
-footer-text: © 2025 EKR
+footer-text: © 2026 Eric Roberts
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
