@@ -3,16 +3,12 @@ layout: default
 title: 日本語ブログ
 permalink: /jp/
 ---
-<h1 style="font-family: 'Anton', sans-serif; font-size: 2.5rem; margin-bottom: 1.5rem;">
-  投稿
-</h1>
 
-<ul class="post-list">
+<ul class="posts-list" style="list-style: none; padding: 0; margin: 0;">
   {% assign jp_posts = site.jp | sort: "date" | reverse %}
   {% for post in jp_posts %}
-    <li>
-      <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+    <li style="margin-bottom: 0.3rem;">
+      <a href="{{ post.url | relative_url }}" style="font-family: 'Anton', sans-serif; font-size: 1.6rem; color: #e8560a; text-decoration: none; font-weight: bold;">{{ post.title }}</a>
     </li>
   {% endfor %}
 </ul>

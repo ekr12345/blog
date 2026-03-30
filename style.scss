@@ -28,6 +28,10 @@ html {
   font-size: $base-font-size;
 }
 
+body.home-page {
+  background: #e8560a;
+}
+
 body {
   font-family: $base-font;
   color: $base-color;
@@ -624,12 +628,24 @@ footer {
 }
 /* === End universal sticky footer =================================== */
 
+// === POSTS PAGE ===
+
+.posts-list li {
+  margin-left: 0 !important;
+}
+
+.posts-list li:before {
+  content: none !important;
+}
+
 // === HOMEPAGE ===
 
 .home {
   background: #e8560a;
   min-height: 100vh;
-  padding: 2rem 1.5rem;
+  padding: 2rem 10px;
+  max-width: 740px;
+  margin: 0 auto;
 
   .site-title {
     font-family: 'Anton', sans-serif;
@@ -656,6 +672,8 @@ footer {
   }
 
   nav {
+    float: none !important;
+    text-align: left !important;
     a {
       display: block;
       font-family: 'Anton', sans-serif;
@@ -665,6 +683,8 @@ footer {
       letter-spacing: 1px;
       line-height: 1.2;
       text-decoration: none;
+      text-align: left !important;
+      margin-left: 0 !important;
 
       &:hover {
         color: #1a1a1a;
