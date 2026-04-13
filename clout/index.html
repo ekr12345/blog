@@ -1270,104 +1270,6 @@
       border: 2px solid #c4a882 !important;
       box-shadow: 6px 6px 0 #c4a882 !important;
     }
-
-    /* ── Mobile ── */
-    @media (max-width: 680px) {
-      /* Remove zoom */
-      body { zoom: 1 !important; }
-
-      /* Header */
-      .header { padding: 12px 16px; }
-
-      /* Onboarding */
-      .onboarding-inner { width: min(360px, calc(100vw - 32px)); }
-
-      /* ── Command hero: [Weights | API] bar + stacked controls ── */
-      .command-hero {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        padding: 12px 16px 0;
-        gap: 10px;
-      }
-      .weights-side { position: static; order: 1; }
-      .api-side     { position: static !important; order: 2; margin-left: auto; }
-      .tv-set       { order: 3; flex: 0 0 100%; max-width: 100%; }
-
-      /* ── Strip the TV casing ── */
-      .tv-body {
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
-        padding: 12px 0 0;
-        gap: 10px;
-      }
-
-      /* Stack: input first, analyze button second */
-      .tv-top-row { flex-direction: column; gap: 10px; }
-
-      /* Screen — full width, prominent input */
-      .tv-screen-bezel {
-        border-radius: 12px !important;
-        border: 1px solid #c4a882 !important;
-      }
-      .tv-screen {
-        min-height: 52px;
-        border-radius: 10px !important;
-        background: #f7efe3 !important;
-      }
-      .tv-screen-inner { padding: 10px 14px; gap: 10px; }
-      .command-input { font-size: 0.9375rem; padding: 6px 0; }
-
-      /* Grille panel — strip decoration, become full-width Analyze bar */
-      .tv-grille-panel {
-        width: 100% !important;
-        flex-direction: row !important;
-        border-radius: 12px !important;
-        padding: 0 !important;
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        gap: 0;
-      }
-      .tv-grille-panel::before { display: none; }
-      .vcr-display { display: none; }
-
-      .btn-analyze {
-        width: 100% !important;
-        justify-content: center;
-        padding: 13px 22px !important;
-        font-size: 0.9rem !important;
-        border-radius: 12px !important;
-        box-shadow: 3px 3px 0 #8c3a00 !important;
-      }
-
-      /* Knobs strip — plain labeled row, no border */
-      .tv-controls-strip {
-        border-top: 1px solid #d9c5a8;
-        margin-top: 4px;
-        padding: 14px 8px 16px;
-        justify-content: space-around;
-      }
-      .tv-knob { width: 32px !important; height: 32px !important; }
-      .knob-label { font-size: 0.46rem; }
-
-      /* Weights panel */
-      .weights-panel { left: 16px; right: 16px; top: 56px; }
-      .weights-panel-inner { max-width: 100%; }
-
-      /* Container */
-      .container { padding: 0 12px 24px; }
-
-      /* Modals */
-      .modal, .modal-lg { width: calc(100vw - 32px); }
-
-      /* Two-col form → single col */
-      .form-2col { grid-template-columns: 1fr; }
-
-      /* Cards */
-      .card { padding: 12px 14px; gap: 10px; }
-    }
   </style>
 </head>
 <body>
@@ -1540,7 +1442,7 @@
 // ─── CONFIG ─────────────────────────────────────────────────────────────────
 
 const DIMS = [
-  { key: 'reach',          label: 'Average Views',     weight: 50,
+  { key: 'reach',          label: 'Median Views',      weight: 50,
     tip: 'Average views per video.' },
   { key: 'uploadFreq',     label: 'Upload Frequency',  weight: 10,
     tip: 'How often they upload — more = more collab opportunities.' },
