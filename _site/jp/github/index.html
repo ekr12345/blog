@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>GitHubを理解する – Eric Roberts – Trying to be Useful</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="このウェブサイト（ていうかブログ？）を作るまで、GitHubなんて使ったことなかった。
+" />
+    <meta property="og:description" content="このウェブサイト（ていうかブログ？）を作るまで、GitHubなんて使ったことなかった。
+" />
+    
+    <meta name="author" content="Eric Roberts" />
+
+    
+    <meta property="og:title" content="GitHubを理解する" />
+    <meta property="twitter:title" content="GitHubを理解する" />
+    
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Eric Roberts - Trying to be Useful" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+
+<style>
+  @font-face {
+    font-family: 'Dreamcast';
+    src: url('/fonts/dreamcast.ttf') format('truetype');
+    font-display: swap;
+  }
+  .site-name a {
+    font-family: 'Dreamcast', 'Anton', sans-serif;
+    font-size: 2.4rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+
+
+</head>
+
+  <body>
+    <div class="wrapper-masthead">
+  <div class="container">
+    <header class="masthead clearfix">
+      
+
+      <div class="site-info">
+        <h1 class="site-name"><a href="/">Eric Roberts</a></h1>
+      </div>
+
+      <nav>
+        
+      </nav>    
+      
+    </header>
+  </div>
+</div>
+
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+
+    <style>
+    .post > h1 {
+      font-family: 'Dreamcast', sans-serif;
+      font-size: 2.3rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+  
+  <h1>GitHubを理解する</h1>
+
+  <div>
+    <span class="date">
+      2025-05-01
+    </span>
+
+    <ul class="tag">
+      
+    </ul>
+  </div>
+
+  <div class="entry">
+    <p>このウェブサイト（ていうかブログ？）を作るまで、GitHubなんて使ったことなかった。</p>
+
+<p>ていうか、そもそもコード触ったこともなかったから、GitHubとか見るだけで「うわ、ムリ」ってなってた。</p>
+
+<p>でも時代は変わる。気づいたら今、自分のウェブサイトをGitHubでホスティングしてるっていうね。</p>
+
+<p>なんでそうなったか、ちょっと話すね。</p>
+
+<p>まず、自分は個人的な<a href="https://ekr.blog/jp/unsocial/">ソーシャルメディアのアカウント</a>持ってない。いろいろ理由はあるけど、まぁざっくり言うと「もういいかな」って思ってて。</p>
+
+<p>とはいえ、「なにかを作ってネットでシェアしたい！」って気持ちはめっちゃ強くて。で、「じゃあ自分のサイト作っちゃえばよくない？」って思ったわけ。全部自分でコントロールできて、誰にも邪魔されないやつ。しかも「SNSやってないけど、これが俺のサイト」って言えるの、なんか気持ちいい。ブームって感じ。</p>
+
+<p>正直、いまのネット社会って、みんなめちゃくちゃ自分の作品のコントロール手放しすぎじゃない？それ見てて、モヤモヤしてた。「もうそういうゲームやりたくないな」ってなったんだよね。</p>
+
+<p>で、自分のサイトにフルコントロール持てるサービスないかな〜って思って、いろんなの調べてみた。前にWordPressは使ったことあるけど、今の自分にはちょっとゴツすぎてパス（プラグインとかSEOとか、今はどうでもいい）。Carrdとかも悪くないけど、ちょっと自由度足りないんだよな〜って感じ。</p>
+
+<p>そんな中で、あるブログ<a href="https://parsam.io/website">記事</a>に出会ったんだ。そこで見たDerek Siversの一言に、ズドンときた。</p>
+
+<figure>
+  <blockquote>
+複雑なソリューション売り込んでくる人に惑わされないで。本当は自転車でいいのに、「ジャンボジェットが必要だよ」って言ってくるんだ。HTMLは手で書こう。そうやってやってれば、自分のサイトが本当に大きくなったときに、ちょっと自動化が必要になるタイミングが自然と分かる。でも、それまでは――ノー、ノー、ノー。HTMLは手書きでいこう。
+</blockquote>
+  <figcaption>— Derek Sivers</figcaption>
+</figure>
+
+<p>この記事の著者も、サイト作るならGitHubがいいよって書いてて。無料だし、新しいスキルも身につくし、って。</p>
+
+<p>ちなみに自分、SaaS業界でマーケティングとかセールスとかクリエイティブ周りやってる。だから「開発っぽい会話」はいつもよく分かんないって感じ。でも最近GitHubちょっと分かってきて、そのモヤモヤもだんだん晴れてきた。で、チームにも前よりちゃんと貢献できるようになった気がしてる。</p>
+
+<p>で、話を自分のサイトの話に戻すと、とにかく助けが必要だった。まじで何も分かってなかったから、みんながやるように、自分もChatGPTに助けを求めた。</p>
+
+<p>超シンプルなプロンプトで、「何も分かりません」って伝えてみたら、ほんとにアシスタントみたいに、最初から最後まで手取り足取り教えてくれた。コードも、説明も、全部くれて。なんか自分、ジュニアコーダーになった気分で、すごい楽しかった。</p>
+
+<p>1時間もしないうちに、自分のウェブサイトがGitHubで公開できてた。</p>
+
+<p>気持ちよかった。今でも気持ちいい。</p>
+
+<p>今では、自分のサイトを触るのがめちゃ楽しい。まるで油まみれのメカニックが車いじってるみたいな感覚。</p>
+
+<p>「これ、自分で作ったんだぜ」っていう、ちょっとした誇らしさもある。</p>
+
+  </div>
+
+  <div class="pagination">
+    
+      <span class="prev" >
+          <a href="http://localhost:4000/jp/code/">
+            &#xE000; コード中
+          </a>
+      </span>
+    
+    
+      <span class="next" >
+          <a href="http://localhost:4000/jp/act/">
+            セカンドアクト &#xE001;
+          </a>
+      </span>
+    
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          <!-- Refer to https://codepen.io/ruandre/pen/howFi -->
+<ul class="svg-icon">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+
+
+<p>© 2026 Eric Roberts</p>
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+    
+  </body>
+</html>

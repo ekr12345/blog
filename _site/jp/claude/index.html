@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>アドワーズとクロード – Eric Roberts – Trying to be Useful</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="新しい課題。Google AdWords キャンペーンをどう実装して運用して分析するかを理解すること。最初の考え？くそっ、自分でなんとかしないといけないな。…と思ってた。
+" />
+    <meta property="og:description" content="新しい課題。Google AdWords キャンペーンをどう実装して運用して分析するかを理解すること。最初の考え？くそっ、自分でなんとかしないといけないな。…と思ってた。
+" />
+    
+    <meta name="author" content="Eric Roberts" />
+
+    
+    <meta property="og:title" content="アドワーズとクロード" />
+    <meta property="twitter:title" content="アドワーズとクロード" />
+    
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="Eric Roberts - Trying to be Useful" href="/feed.xml" />
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+
+<style>
+  @font-face {
+    font-family: 'Dreamcast';
+    src: url('/fonts/dreamcast.ttf') format('truetype');
+    font-display: swap;
+  }
+  .site-name a {
+    font-family: 'Dreamcast', 'Anton', sans-serif;
+    font-size: 2.4rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+
+
+</head>
+
+  <body>
+    <div class="wrapper-masthead">
+  <div class="container">
+    <header class="masthead clearfix">
+      
+
+      <div class="site-info">
+        <h1 class="site-name"><a href="/">Eric Roberts</a></h1>
+      </div>
+
+      <nav>
+        
+      </nav>    
+      
+    </header>
+  </div>
+</div>
+
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+
+    <style>
+    .post > h1 {
+      font-family: 'Dreamcast', sans-serif;
+      font-size: 2.3rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+  
+  <h1>アドワーズとクロード</h1>
+
+  <div>
+    <span class="date">
+      2026-02-16
+    </span>
+
+    <ul class="tag">
+      
+    </ul>
+  </div>
+
+  <div class="entry">
+    <p>新しい課題。Google AdWords キャンペーンをどう実装して運用して分析するかを理解すること。最初の考え？くそっ、自分でなんとかしないといけないな。…と思ってた。</p>
+
+<p>ここ最近ずっと AI をガンガン使ってきた — ウェブスクレイピング、文章作成、翻訳、アイデア出し。ChatGPT には慣れてるし、プロンプトもかなり自在に操れる。でも今回はちょっと好奇心が出てきた。「どれだけ AI に実際に任せられるんだ？」って。</p>
+
+<p>そこで MCP を知った。</p>
+
+<p>Model Context Protocol（MCP）は、Anthropic が 2024 年に出したオープン標準で、AI モデルやエージェントを外部データ、ツール、ソフトウェアシステムにつなげるやつ。俺の場合、これで自分用の AdWords エキスパートを作れるようになった。単に概念を説明してくれるチャットボットじゃなくて、Google Ads アカウントに直接つないで、キャンペーンをベストプラクティスに沿って構造化して、パフォーマンスデータを分析して、構造化されたアドバイスまでしてくれるやつ。</p>
+
+<p>いじり始めた。最初に助けられたのは Grace Leung のこの <a href="https://www.youtube.com/watch?v=0J2_YGuNrDo">動画</a>。ターミナルで Claude のセットアップは案外シンプルだった。AdWords（と YouTube）につなぐのはちょっとビビった。何を聞けばいいんだ？用語の半分も知らんし。「いい感じ」って何だよ？驚くほどうまくいったのは、Claude をターミナルと Web アプリの両方で開くことだった。</p>
+
+<p>セットアップの詳細はターミナルで確認して、スクリーンショットを撮って Web アプリに貼って、「これ OK っすか？」って聞く。そうやって往復。何度も何度も。スクリーンショットを見てフィードバックをくれる AI ツールの能力はマジで衝撃 — そして、多くの人がまだそれを活かせてない気がする。余談だけど、今日 Home Depot で、ある人たちが必要な電球を見つけられなくて困ってるのを手伝った。</p>
+
+<p>家から持ってきた電球の写真を撮って、棚のオプションの写真も撮って、ChatGPT に「どれが合う？」って聞いたら一発で答えが出た。日常の拡張知能。</p>
+
+<p>そんな感じで試行錯誤したら、AdWords はつながって、俺の AI データアナリストは本番運用に入った。普通なら数週間かかることが 2 日で終わった。ヤバい。そして俺だけじゃない。この加速感を体験してる人は山ほどいる。</p>
+
+<p>Obie Fernandez が最近こんなことを共有してたのが刺さった：</p>
+<blockquote>
+  <p>企業向けソフトウェア ベンダーはナレッジ マネジメント システムで 6 桁〜 7 桁の料金を取る。何十人ものチームが何年もかけて作るやつだ。導入にはコンサルが必要で、設定にも数ヶ月かかる。</p>
+
+  <p>俺は同等の機能を 4 日で作った。しかも CTO の日常業務しながら。</p>
+</blockquote>
+
+<p>うん、俺は例外かもしれん。でもツールが劇的に変わった今だから俺にもできる。AI の進化はすごい勢いで進んでて、その影響はまだはっきりしない。でも、俺が感じてるのはこうだ：<br />
+役割は統合されていく。AdWords マネージャー、デザイナー、プロダクトマネージャーが別々にいるんじゃなくて、AI を使いこなせる一人の万能オペレーターを雇う方が価値がある時代が来る。</p>
+
+<p>これが伝統的な仕事の構造にリアルな影響を与えるのは間違いないし、その意味について真面目に考える必要がある。でも俺は、この波に乗るのが楽しい側の人間だ。</p>
+
+  </div>
+
+  <div class="pagination">
+    
+      <span class="prev" >
+          <a href="http://localhost:4000/jp/domain/">
+            &#xE000; ドメイン
+          </a>
+      </span>
+    
+    
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          <!-- Refer to https://codepen.io/ruandre/pen/howFi -->
+<ul class="svg-icon">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+
+
+<p>© 2026 Eric Roberts</p>
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+    
+  </body>
+</html>
