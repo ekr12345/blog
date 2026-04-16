@@ -1700,19 +1700,24 @@ async function resolveShortUrl(urlStr) {
   } catch { clearTimeout(timer); return null; }
 }
 
+// Scan paragraph blocks (separated by blank lines) that contain an affiliate keyword,
+// and return all URLs in those blocks. This handles descriptions where the keyword
+// appears on a section header line and URLs follow on subsequent lines.
 function urlsOnAffiliateLines(desc) {
   const results = [];
   const urlRe = /https?:\/\/[^\s<>"{}|\\^`\[\]]+/g;
-  for (const line of desc.split('\n')) {
-    if (!AFFILIATE_PATTERNS.some(re => re.test(line))) continue;
+  const blocks = desc.split(/\n[ \t]*\n/);
+  for (const block of blocks) {
+    if (!AFFILIATE_PATTERNS.some(re => re.test(block))) continue;
     let m;
-    while ((m = urlRe.exec(line)) !== null) results.push(m[0]);
+    urlRe.lastIndex = 0;
+    while ((m = urlRe.exec(block)) !== null) results.push(m[0]);
   }
   return results;
 }
 
 // Detect tracking/referral URLs anywhere in description (sponsor links always have ref params)
-const TRACKING_PARAMS = new Set(['ref', 'utm_source', 'utm_campaign', 'aff', 'affid', 'n', 'code', 'partner', 'via', 'src']);
+const TRACKING_PARAMS = new Set(['ref', 'referral', 'utm_source', 'utm_campaign', 'aff', 'affid', 'n', 'code', 'partner', 'via', 'src']);
 function urlsWithTrackingParams(desc) {
   const results = [];
   const urlRe = /https?:\/\/[^\s<>"{}|\\^`\[\]]+/g;
