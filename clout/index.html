@@ -1967,7 +1967,7 @@ async function fetchChannelStats(channelId, apiKey, mode) {
 
     const ids = items.map(i => i.snippet.resourceId.videoId).join(',');
     const videoData = await ytGet(
-      `videos?part=statistics,contentDetails,snippet&id=${ids}`, apiKey
+      `videos?part=statistics,contentDetails,snippet,liveStreamingDetails&id=${ids}`, apiKey
     );
     const videoMap = {};
     for (const v of (videoData.items || [])) videoMap[v.id] = v;
@@ -1976,9 +1976,12 @@ async function fetchChannelStats(channelId, apiKey, mode) {
       const vid = videoMap[item.snippet.resourceId.videoId];
       if (!vid) continue;
       const dur = parseDuration(vid.contentDetails?.duration || '');
-      const isShort = dur > 0 && dur <= 60;
+      // YouTube expanded Shorts to 3 min (180s) in late 2024; also catch #shorts tag
+      const isShort = (dur > 0 && dur <= 180) || /#shorts?\b/i.test(item.snippet.title);
       if (mode === 'shorts' && !isShort) continue;
       if (mode === 'long'   &&  isShort) continue;
+      // Skip all livestreams (completed, live, or scheduled) — raw stream recordings skew the median
+      if (vid.liveStreamingDetails) continue;
       filtered.push({
         date:        new Date(item.snippet.publishedAt),
         title:       item.snippet.title,
