@@ -334,7 +334,7 @@
     }
 
     /* Analyze button in VCR panel — override theme */
-    .tv-error { padding: 6px 0 0; font-size: 0.75rem; }
+    .tv-error { padding: 6px 0 0; font-size: 0.9rem; text-align: center; font-family: 'Dreamcast', 'Anton', sans-serif; letter-spacing: 0.05em; }
 
     /* ── Weights Panel (in-flow, no overlap) ── */
     .weights-panel {
@@ -1270,6 +1270,7 @@
       border: 2px solid #c4a882 !important;
       box-shadow: 6px 6px 0 #c4a882 !important;
     }
+
   </style>
 </head>
 <body>
@@ -1371,6 +1372,7 @@
     <div class="analyze-error tv-error" id="analyze-error"></div>
   </div><!-- /.tv-set -->
 </div>
+
 
 <!-- ── Weights Panel (in document flow, no overlap) ── -->
 <div class="weights-panel" id="weights-panel">
@@ -1939,13 +1941,18 @@ function parseDuration(iso) {
   return (parseInt(m[1] || 0) * 3600) + (parseInt(m[2] || 0) * 60) + parseInt(m[3] || 0);
 }
 
-async function fetchChannelStats(channelId, apiKey, mode) {
+async function fetchChannelStats(channelId, apiKey, mode, sampleSize, preloadedItem) {
   // Channel info + uploads playlist
-  const chanData = await ytGet(
-    `channels?part=snippet,statistics,contentDetails&id=${channelId}`, apiKey
-  );
-  if (!chanData.items?.length) throw new Error('Channel not found.');
-  const ch = chanData.items[0];
+  let ch;
+  if (preloadedItem) {
+    ch = preloadedItem;
+  } else {
+    const chanData = await ytGet(
+      `channels?part=snippet,statistics,contentDetails&id=${channelId}`, apiKey
+    );
+    if (!chanData.items?.length) throw new Error('Channel not found.');
+    ch = chanData.items[0];
+  }
   const subs       = parseInt(ch.statistics.subscriberCount || 0);
   const videoCount = parseInt(ch.statistics.videoCount || 0);
   const uploadsId  = ch.contentDetails.relatedPlaylists.uploads;
@@ -1956,7 +1963,7 @@ async function fetchChannelStats(channelId, apiKey, mode) {
   const channelUrl = customUrl ? `https://www.youtube.com/${customUrl}` : `https://www.youtube.com/channel/${channelId}`;
 
   // Paginate uploads playlist, filtering by type, until we have 30 matching videos
-  const TARGET = parseInt(localStorage.getItem('video_sample') || '30');
+  const TARGET = sampleSize || parseInt(localStorage.getItem('video_sample') || '30');
   const filtered = [];
   let pageToken = null;
   let pagesFetched = 0;
@@ -2051,6 +2058,10 @@ function addCollaboratorDirect(data) {
   collaborators.push({
     id: nextId++,
     name: data.name,
+    channelId:  data.channelId  || null,
+    channelUrl: data.channelUrl || null,
+    thumb:      data.thumb      || null,
+    country:    data.country    || null,
     language: data.language,
     avgViews: data.avgViews,
     subs: data.subs || null,
@@ -2083,7 +2094,7 @@ async function runAnalyze() {
   const errEl  = document.getElementById('analyze-error');
 
   errEl.className = 'analyze-error';
-  if (!url)    { showError('Please paste a YouTube URL.'); return; }
+  if (!url)    { return; }
   if (!apiKey) { showError('Please enter your YouTube Data API v3 key.'); return; }
 
   setAnalyzeLoading(true);
@@ -2102,7 +2113,7 @@ async function runAnalyze() {
 function setAnalyzeLoading(on) {
   document.getElementById('analyze-btn').disabled = on;
   document.getElementById('spinner').className = 'spinner' + (on ? ' active' : '');
-  document.getElementById('analyze-label').textContent = on ? 'Fetching…' : 'Analyze';
+  if (!on) document.getElementById('analyze-label').textContent = 'Analyze';
 }
 
 function showError(msg) {
