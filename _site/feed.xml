@@ -1,4 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-04-12T19:45:23-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Eric Roberts</title><subtitle>Trying to be Useful</subtitle><entry><title type="html">Adwords and Claude</title><link href="http://localhost:4000/claude/" rel="alternate" type="text/html" title="Adwords and Claude" /><published>2026-02-16T00:00:00-08:00</published><updated>2026-02-16T00:00:00-08:00</updated><id>http://localhost:4000/claude</id><content type="html" xml:base="http://localhost:4000/claude/"><![CDATA[<p>New task.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-04-12T22:41:13-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Eric Roberts</title><subtitle>Trying to be Useful</subtitle><entry><title type="html">Dependance on AI</title><link href="http://localhost:4000/ai/" rel="alternate" type="text/html" title="Dependance on AI" /><published>2026-03-31T00:00:00-07:00</published><updated>2026-03-31T00:00:00-07:00</updated><id>http://localhost:4000/ai</id><content type="html" xml:base="http://localhost:4000/ai/"><![CDATA[<p>I’m not going to lie—if someone told me I couldn’t use AI for any part of my job, I’d be in trouble.</p>
+
+<p>Hooking up MCPs, APIs, and building my own home-brewed apps, it feels like I’ve got real power.</p>
+
+<p>That said, I do wonder what the hell is going on half the time as Claude makes changes in my terminal.</p>
+
+<p>“Click yes if you’d like to proceed,” it tells me.<br />
+“Yes, go ahead,” I select.</p>
+
+<p>Who knows—maybe my computer is already compromised. Ha.</p>
+
+<p>Anyways, it still feels worth the risk. I mean, millions of other people are doing it.</p>
+
+<p>This year I’ve really experienced the “magic” of AI—specifically Claude Code.</p>
+
+<p>It’s raised a lot of thoughts and questions about software. Here are a few:</p>
+
+<p><strong>AI becomes an extra layer of the user experience</strong></p>
+
+<p>In other words, I’m accessing software simply by using my terminal and Claude.</p>
+
+<p>This is especially helpful for data analysis, because f*ck going into GA4 and trying to sift through everything.</p>
+
+<p><strong>Software that is “open” (i.e. has APIs) becomes more valuable</strong></p>
+
+<p>Small example: my LingQ account has a ton of personal data.</p>
+
+<p>When I connect LingQ's API to Claude (Terminal? Claude Code?), I can access the platform in entirely new ways and extract more value.</p>
+
+<p>For example:</p>
+
+<ul>
+  <li>It can analyze content I’ve read</li>
+  <li>Recommend sources based on my tastes and level</li>
+  <li>Generate hyper-customized Anki decks</li>
+</ul>
+
+<p>…and so on.</p>
+
+<p><strong>A lot of software companies will go out of business</strong></p>
+
+<p>I know this has already been talked about a lot.</p>
+
+<p>My take is that it’s not all doom and gloom.</p>
+
+<p>However, if software is “closed,” or if customers only use a small portion of its features, it’s in trouble.</p>
+
+<p>It’s now insanely easy to create bespoke software, push it to GitHub, and share it with your entire team.</p>
+
+<p><strong>Pricing Power</strong></p>
+
+<p>The more inputs I connect with Claude, the harder it is to switch over to another AI provider.</p>
+
+<p>Claude can raise prices and many companies would eat it.</p>
+
+<p>That brings me to my next point.</p>
+
+<p><strong>Open source AI as an alternative to the big boys</strong></p>
+
+<p>I’ve explored this briefly in the past but didn’t get much value from it. Prompts that didn’t require many tokens caused my laptop to heat up and its fans to go berserk.</p>
+
+<p>However, it seems like things are becoming a lot more efficient, and I’m ready to jump back in.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[I’m not going to lie—if someone told me I couldn’t use AI for any part of my job, I’d be in trouble.]]></summary></entry><entry><title type="html">Adwords and Claude</title><link href="http://localhost:4000/claude/" rel="alternate" type="text/html" title="Adwords and Claude" /><published>2026-02-16T00:00:00-08:00</published><updated>2026-02-16T00:00:00-08:00</updated><id>http://localhost:4000/claude</id><content type="html" xml:base="http://localhost:4000/claude/"><![CDATA[<p>New task.
 Figure out how to implement, run, and analyze Google AdWords campaigns.</p>
 
 <p>My first thought?
@@ -240,14 +301,4 @@ What does “good” look like?</p>
 
 <p>For example, in Japanese—a language I’m actively trying to master—I’ve gotten into the habit of running my text messages through ChatGPT to check accuracy before sending them. It’s a bad habit, because it pucks up the learning process and keeps me from developing the fluency I’m aiming for.</p>
 
-<p>I think I notice this more with Japanese because I’m so conscious of my goal to improve. With English, my native language, I don’t feel the same hesitation about relying on ChatGPT for all kinds of tasks—even though that reliance can also weaken my skills over time, like my ability to write well or process long-form content.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[I’m noticing that I’m being (a bit) overly dependent on ChatGPT.]]></summary></entry><entry><title type="html">My New Financial Advisor</title><link href="http://localhost:4000/llm/" rel="alternate" type="text/html" title="My New Financial Advisor" /><published>2025-08-05T00:00:00-07:00</published><updated>2025-08-05T00:00:00-07:00</updated><id>http://localhost:4000/llm</id><content type="html" xml:base="http://localhost:4000/llm/"><![CDATA[<p>I’m becoming more wary of big tech these days.</p>
-
-<p>Slowly, I’m trying to migrate away from certain software in favor of open source. I was tempted to switch to Linux, but for now, I’ll keep using Windows.</p>
-
-<p>I came across a video explaining how to host your own private, secure LLM models. Woah—neat. I gave it a go and, within minutes, I had my own private DeepSeek-powered model running on my laptop.</p>
-
-<p>My main reason for doing this is to test how AI might help me with my finances. The more details I share, the better the answers—at least in theory. Since those details are personal, I’d rather not use a closed, big-tech-owned model like ChatGPT.</p>
-
-<p>I’ve barely tested my private LLM (which I use with LM Studio). It’s definitely not as quick, and it guzzles GPU power—my fans go into hyper-mode whenever I prompt it. But no worries; for my particular use case, I think it’ll be good enough.</p>
-
-<p>P.S. I recently re-designed this site using ChatGPT. Still can’t believe that I can generate working code with so much ease.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[I’m becoming more wary of big tech these days.]]></summary></entry></feed>
+<p>I think I notice this more with Japanese because I’m so conscious of my goal to improve. With English, my native language, I don’t feel the same hesitation about relying on ChatGPT for all kinds of tasks—even though that reliance can also weaken my skills over time, like my ability to write well or process long-form content.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[I’m noticing that I’m being (a bit) overly dependent on ChatGPT.]]></summary></entry></feed>
