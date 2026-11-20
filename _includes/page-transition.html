@@ -1,6 +1,5 @@
 <style>
-  /* Page transition: vertical swipe panel sweeps bottom→top across the navigation,
-     painted with the destination page's bg color. */
+  /* Page transition: a white panel sweeps bottom→top between pages. */
   .page-overlay {
     position: fixed;
     inset: 0;
@@ -22,8 +21,8 @@
 
 <script>
 (() => {
-  const ORANGE_PATHS = new Set([]);
-  const pageBg = (pathname) => ORANGE_PATHS.has(pathname) ? '#e8560a' : '#ffffff';
+  // Every page has a white background now.
+  const pageBg = () => '#ffffff';
 
   // Create the overlay immediately so it covers the page before content renders.
   const ov = document.createElement('div');
