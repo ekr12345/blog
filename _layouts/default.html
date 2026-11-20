@@ -2,6 +2,15 @@
 <html>
   {% include head.html %}
   <body{% if page.wide_layout %} class="wide-layout"{% endif %}>
+    <header class="site-header">
+      <a class="site-header-logo" href="/" aria-label="Home"><img src="/images/eric-logo-small.png" alt="ERIC"></a>
+      <nav aria-label="Main">
+        {% assign navs = "Posts:/posts/,Apps:/apps/,Me:/me/,Now:/now/" | split: "," %}
+        {% for n in navs %}{% assign parts = n | split: ":" %}
+        <a href="{{ parts[1] }}"{% if page.url == parts[1] %} aria-current="page"{% endif %}>{{ parts[0] }}</a>
+        {% endfor %}
+      </nav>
+    </header>
     <div id="main" role="main" class="container">
       {% if page.wide_layout %}
         <div class="article-content">

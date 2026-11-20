@@ -29,7 +29,7 @@ html {
 }
 
 body.home-page {
-  background: #e8560a;
+  background: #ffffff;
 }
 
 body {
@@ -562,7 +562,7 @@ nav {
 .wrapper-footer {
   margin-top: 50px;
   border: none;
-  background-color: #e8560a;
+  background-color: $sega-blue;
 }
 
 footer {
@@ -575,12 +575,12 @@ footer {
   color: #ffffff;
 
   p {
-    font-family: 'Dreamcast', sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.03em;
+    font-family: $pixel-font;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     margin: 0;
-    line-height: 1.2;
-    transform: translateY(4px);
+    line-height: 1.6;
   }
 
   p a {
@@ -677,8 +677,9 @@ body.wide-layout #main.container {
 
 .article-content {
   max-width: 720px;
-  font-size: 1.45rem;
-  line-height: 1.75;
+  font-size: 1.15rem;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
 
   // Align top of first visible element across all wide_layout pages
   // (article H1s, /me & /now H1s, /posts list) to container padding-top.
@@ -716,7 +717,7 @@ body.wide-layout #main.container {
   bottom: 0;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font-family: 'Dreamcast', sans-serif;
+  font-family: $base-font;
   font-size: clamp(7.23rem, 19.76vh, 21.69rem);
   letter-spacing: 0.2rem;
   line-height: 1;
@@ -746,7 +747,7 @@ body.wide-layout #main.container {
   }
 
   .site-title {
-    font-family: 'Dreamcast', sans-serif;
+    font-family: $base-font;
     font-size: 3rem;
     color: #fff;
     letter-spacing: 1px;
@@ -778,7 +779,7 @@ body.wide-layout #main.container {
     z-index: 5;
     a {
       display: block;
-      font-family: 'Dreamcast', sans-serif;
+      font-family: $base-font;
       font-size: 2.75rem;
       color: #fff;
       letter-spacing: 1px;
@@ -863,5 +864,271 @@ body.wide-layout #main.container {
 @include mobile {
   .embed-viewport iframe {
     pointer-events: none;
+  }
+}
+
+// === BOOT-SCREEN HOMEPAGE (Sega-style ERIC logo, then a select menu) ===
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  cursor: pointer;
+  transition: opacity 0.45s ease;
+
+  &.is-gone {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.boot-logo {
+  display: block;
+  width: 92vw;
+  max-width: 1024px;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.select {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 16px;
+  font-family: $pixel-font;
+  color: $sega-blue;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+
+  &.is-shown {
+    opacity: 1;
+  }
+
+  nav {
+    float: none;
+    margin: 0;
+    font-family: inherit;
+  }
+}
+
+.select-title {
+  font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+  letter-spacing: 0.3em;
+  margin: 0 0 clamp(1.8rem, 5vh, 3rem);
+  color: $sega-blue;
+}
+
+.select-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0 0 clamp(1rem, 3vh, 1.6rem);
+    padding: 0;
+    &:before { content: none !important; }
+  }
+
+  a {
+    position: relative;
+    display: inline-block;
+    padding-left: 1.3em;
+    font-size: clamp(1.9rem, 5vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: 0.06em;
+    color: $sega-blue;
+    text-decoration: none;
+    outline: none;
+
+    &::before {
+      content: "▶";
+      position: absolute;
+      left: 0;
+      top: 0;
+      visibility: hidden;
+      color: $sega-red;
+    }
+
+    &.is-selected {
+      color: $sega-red;
+      &::before {
+        visibility: visible;
+        animation: select-blink 0.8s steps(1) infinite;
+      }
+    }
+  }
+}
+
+.select-hint {
+  margin: clamp(1.5rem, 5vh, 3rem) 0 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  color: $base-lighten-color;
+
+  @media (hover: none) {
+    display: none;
+  }
+}
+
+@keyframes select-blink {
+  50% { visibility: hidden; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .select-list a.is-selected::before { animation: none; }
+}
+
+// === SITE HEADER (inner pages) ===
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  padding: 1.25rem clamp(1rem, 14vw, 18rem) 0;
+
+  @include mobile {
+    padding: 1rem 16px 0;
+  }
+
+  .site-header-logo img {
+    display: block;
+    height: 26px;
+    width: auto;
+    image-rendering: pixelated;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 1.4rem;
+    float: none;
+    margin-top: 0;
+
+    a {
+      font-family: $pixel-font;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: $sega-blue;
+      text-decoration: none;
+      margin: 0 !important;
+      line-height: 1.2;
+      padding: 0.6rem 0;   // ~44px tap target on phones
+
+      &:hover,
+      &:focus-visible,
+      &[aria-current="page"] {
+        color: $sega-red;
+      }
+    }
+  }
+}
+
+.posts-list li {
+  margin-bottom: 0.9rem !important;
+}
+
+.posts-list li > a {
+  display: inline-block;
+  line-height: 1.35;
+}
+
+.posts-list .post-date,
+.post .date {
+  display: block;
+  font-family: $pixel-font;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $base-lighten-color;
+  margin-top: 0.35rem;
+}
+
+// === TYPE SYSTEM ===
+// Two fonts: $pixel-font for short "console UI" text (menus, nav, dates,
+// footer), Nunito for everything people read (titles bold, body regular).
+
+.page-title {
+  font-family: $pixel-font;
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3.6vw, 2.3rem);
+  line-height: 1.3;
+  letter-spacing: 0;
+  color: $sega-blue;
+  margin: 0 0 1.25rem;
+}
+
+.post .page-title {
+  margin-bottom: 0.4rem;
+}
+
+.post .date {
+  margin-bottom: 1.6rem;
+}
+
+.list-title {
+  font-family: $pixel-font;
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+  line-height: 1.35;
+  color: $sega-blue;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    color: $sega-red;
+  }
+}
+
+.article-content {
+  h2 { font-family: $pixel-font; font-weight: 400; font-size: 1.55rem; line-height: 1.35; color: $sega-blue; margin-top: 2.2rem; }
+  h3 { font-family: $pixel-font; font-weight: 400; font-size: 1.25rem; line-height: 1.4; color: $sega-blue; margin-top: 1.8rem; }
+
+  a { color: $sega-blue; }
+  a:hover { color: $sega-red; }
+}
+
+// Bigger tap targets for post prev/next links
+.post .pagination a {
+  display: inline-block;
+  padding: 0.7rem 0;
+  font-family: $pixel-font;
+}
+
+
+// Phones: keep logo + nav on one row and trim the space above content
+@include mobile {
+  .site-header {
+    flex-wrap: nowrap;
+
+    nav {
+      gap: 0 0.9rem;
+      a { font-size: 0.95rem; }
+    }
+  }
+
+  body.wide-layout #main.container {
+    padding-top: 1.5rem;
   }
 }

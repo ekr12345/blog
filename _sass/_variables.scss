@@ -5,6 +5,8 @@
 
 // Colors
 $blue: #4183C4;
+$sega-blue: #0855EA; // from the ERIC logo
+$sega-red: #DB2800;  // Sonic's shoes, for hover
 
 // Grays
 $black: #000;
@@ -20,7 +22,10 @@ $helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $georgia: Georgia, serif;
 
 // Fonts
-$base-font: 'Nunito', 'Spoqa Han Sans', 'Apple SD Gothic Neo', sans-serif;
+$reading-font: 'Nunito', 'Spoqa Han Sans', 'Apple SD Gothic Neo', sans-serif; // swap back into $base-font for non-pixel body text
+$base-font: 'DotGothic16', 'Nunito', sans-serif;
+$pixel-font: 'DotGothic16', 'Courier New', monospace;      // titles, nav, dates, footer
+$arcade-font: 'Press Start 2P', 'Courier New', monospace;  // home select menu only
 $code-font: 'Menlo', 'Courier New', 'Monaco', 'Spoqa Han Sans', monospace;
 
 // Font sizes
